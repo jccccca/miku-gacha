@@ -8,18 +8,17 @@
 </head>
 <body>
   <h1>初音未来抽奖</h1>
-
   <div class="controls">
     <button onclick="draw(1)">单抽</button>
     <button onclick="draw(10)">十连抽</button>
   </div>
-
   <div class="cards" id="cards"></div>
 
-  <canvas id="chart" width="600" height="200"></canvas>
+  <div id="chartContainer">
+    <canvas id="drawChart"></canvas>
+  </div>
 
-  <!-- 粒子容器 -->
-  <div id="particle-container"></div>
+  <canvas id="confettiCanvas"></canvas>
 
   <script src="script.js"></script>
 </body>
