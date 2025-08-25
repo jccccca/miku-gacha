@@ -1,7 +1,7 @@
 const pool = [
   { name: "初音未来", rarity: "SSR", weight: 5, img: "image/miku.jpg" },
-  { name: "樱花初音", rarity: "SR", weight: 10, img: "image/yuki-miku.jpg" },
-  { name: "雪初音", rarity: "SR", weight: 10, img: "image/sakura-miku.jpg" },
+  { name: "樱花初音", rarity: "SR", weight: 10, img: "image/yuki-mikusakura-miku.jpg" },
+  { name: "雪初音", rarity: "SR", weight: 10, img: "image/yuki-miku.jpg" },
   { name: "赛车初音", rarity: "R", weight: 15, img: "image/racing-miku.jpg" },
   { name: "rabbit hole", rarity: "R", weight: 15, img: "image/rabbit hole.jpg" },
   { name: "重音Teto风格", rarity: "R", weight: 45, img: "image/teto.jpg" }
@@ -161,3 +161,4 @@ function launchConfetti(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
   },3000);
 }
+
