@@ -35,9 +35,7 @@ const drawChart = new Chart(ctx, {
   },
   options: {
     responsive: true,
-    scales: {
-      y: { beginAtZero: true, ticks: { stepSize: 1 } }
-    }
+    scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } }
   }
 });
 
@@ -99,4 +97,67 @@ function draw(count){
   drawChart.update();
 }
 
-// 粒子效果函数 launchConfetti() 同原来的内容
+// 粒子效果
+function launchConfetti(){
+  const canvas = document.getElementById('confettiCanvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const colors = ['#FF0A54','#FF477E','#FF7096','#FF85A1','#FBB1BD','#F9BEC7','#FAD0C4','#A0E7E5','#B4F8C8','#FBE7C6'];
+  const confettiCount = 150;
+  const confettis = [];
+
+  for(let i=0;i<confettiCount;i++){
+    confettis.push({
+      x: Math.random()*canvas.width,
+      y: Math.random()*canvas.height - canvas.height,
+      r: Math.random()*6 + 4,
+      d: Math.random()*confettiCount,
+      color: colors[Math.floor(Math.random()*colors.length)],
+      tilt: Math.random()*10-10,
+      tiltAngleIncremental: Math.random()*0.07+0.05,
+      tiltAngle:0
+    });
+  }
+
+  let animation;
+  function drawFrame(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    for(let i=0;i<confettiCount;i++){
+      const c = confettis[i];
+      ctx.beginPath();
+      ctx.lineWidth = c.r/2;
+      ctx.strokeStyle = c.color;
+      ctx.moveTo(c.x + c.tilt + c.r/4, c.y);
+      ctx.lineTo(c.x + c.tilt, c.y + c.tilt + c.r/4);
+      ctx.stroke();
+    }
+    update();
+  }
+
+  function update(){
+    for(let i=0;i<confettiCount;i++){
+      const c = confettis[i];
+      c.tiltAngle += c.tiltAngleIncremental;
+      c.y += (Math.cos(c.d) + 3 + c.r/2)/2;
+      c.x += Math.sin(c.d);
+      c.tilt = Math.sin(c.tiltAngle)*15;
+      if(c.y>canvas.height){
+        c.y = -10;
+        c.x = Math.random()*canvas.width;
+      }
+    }
+  }
+
+  function animate(){
+    drawFrame();
+    animation = requestAnimationFrame(animate);
+  }
+  animate();
+
+  setTimeout(()=>{
+    cancelAnimationFrame(animation);
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+  },3000);
+}
