@@ -10,13 +10,16 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
 }
+
 h1 {
   color: #fff;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
 }
+
 .controls {
   margin: 20px;
 }
+
 button {
   background: #ffffffaa;
   border: none;
@@ -27,10 +30,12 @@ button {
   font-size: 16px;
   transition: transform 0.2s;
 }
+
 button:hover {
   transform: scale(1.05);
   background: #fff;
 }
+
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -39,12 +44,14 @@ button:hover {
   margin-top: 20px;
   position: relative;
 }
+
 .card {
   width: 150px;
   height: 220px;
   perspective: 1000px;
   position: relative;
 }
+
 .card-inner {
   position: relative;
   width: 100%;
@@ -52,9 +59,11 @@ button:hover {
   transform-style: preserve-3d;
   transition: transform 0.8s;
 }
+
 .card.flip .card-inner {
   transform: rotateY(180deg);
 }
+
 .card-front, .card-back {
   position: absolute;
   width: 100%;
@@ -66,12 +75,14 @@ button:hover {
   justify-content: center;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
+
 .card-front {
   background: #fff;
   font-weight: bold;
   font-size: 20px;
   color: #555;
 }
+
 .card-back {
   transform: rotateY(180deg);
   flex-direction: column;
@@ -80,6 +91,7 @@ button:hover {
   padding: 10px;
   font-weight: bold;
 }
+
 .card-back img {
   width: 100%;
   height: 140px;
@@ -87,6 +99,7 @@ button:hover {
   border-radius: 10px;
   margin-bottom: 8px;
 }
+
 #chartContainer {
   margin-top: 40px;
   width: 90%;
@@ -95,7 +108,7 @@ button:hover {
   padding: 15px;
   border-radius: 10px;
 }
-/* 粒子效果 */
+
 #confettiCanvas {
   position: fixed;
   top:0;
