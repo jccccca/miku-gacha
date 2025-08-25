@@ -122,7 +122,7 @@ function launchConfetti(){
   }
 
   let animation;
-  function drawFrame(){
+  function drawConfetti(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
     for(let i=0;i<confettiCount;i++){
       const c = confettis[i];
@@ -133,10 +133,10 @@ function launchConfetti(){
       ctx.lineTo(c.x + c.tilt, c.y + c.tilt + c.r/4);
       ctx.stroke();
     }
-    update();
+    updateConfetti();
   }
 
-  function update(){
+  function updateConfetti(){
     for(let i=0;i<confettiCount;i++){
       const c = confettis[i];
       c.tiltAngle += c.tiltAngleIncremental;
@@ -150,15 +150,14 @@ function launchConfetti(){
     }
   }
 
-  function animate(){
-    drawFrame();
-    animation = requestAnimationFrame(animate);
+  function animateConfetti(){
+    drawConfetti();
+    animation = requestAnimationFrame(animateConfetti);
   }
-  animate();
+  animateConfetti();
 
   setTimeout(()=>{
     cancelAnimationFrame(animation);
     ctx.clearRect(0,0,canvas.width,canvas.height);
   },3000);
 }
-
