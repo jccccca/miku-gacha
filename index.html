@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>初音未来抽奖</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h1>初音未来抽奖</h1>
+
+  <div class="controls">
+    <button onclick="draw(1)">单抽</button>
+    <button onclick="draw(10)">十连抽</button>
+  </div>
+
+  <div class="cards" id="cards"></div>
+
+  <canvas id="chart" width="600" height="200"></canvas>
+
+  <!-- 粒子容器 -->
+  <div id="particle-container"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
